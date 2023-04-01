@@ -11,10 +11,21 @@ const lookup = {
 };
 
 function rot13(encodedStr){
+	var words = encodedStr.split(" ");
    let decodedArr = []; // Your Result goes here
   // Only change code below this line
 
-  return ;//return decodedArr
+	for (let i=0; i<words.length; i++) {
+		var word = words[i];
+		var decodeWord = "";
+		for (let j=0; j<word.length; j++) {
+			var char = word.charAt(j);
+			var decodeChar = lookup[char];
+			decodeWord += decodeChar;
+		}
+		decodedArr.push(decodeWord);
+	}
+  return decodedArr.join(" ");//return decodedArr
 }
 
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
